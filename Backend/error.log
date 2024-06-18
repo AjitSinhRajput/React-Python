@@ -1,0 +1,151 @@
+2024-06-04 14:51:27,883 - ERROR - Database Error: relation "users" does not exist- 43
+2024-06-04 14:51:43,822 - ERROR - Database Error: invalid input for query argument $5: '509480' ('str' object cannot be interpreted as an integer)- 43
+2024-06-04 14:52:35,409 - ERROR - Database Error: invalid input for query argument $5: '123807' ('str' object cannot be interpreted as an integer)- 43
+2024-06-04 14:52:54,727 - ERROR - module 'jwt' has no attribute 'encode'- 78
+2024-06-04 14:56:52,286 - ERROR - Email already exists!- 43
+2024-06-04 15:06:14,874 - ERROR - Email already exists!- 43
+2024-06-04 19:00:40,579 - ERROR - Email already exists!- 43
+2024-06-04 19:09:59,421 - ERROR - Email already exists!- 43
+2024-06-04 19:18:40,925 - ERROR - Email already exists!- 43
+2024-06-05 13:15:33,273 - ERROR - Database Error: relation "admins" does not exist- 43
+2024-06-05 13:15:33,548 - ERROR - Database Error: relation "admins" does not exist- 43
+2024-06-05 13:18:02,689 - ERROR - Database Error: column "email" does not exist- 43
+2024-06-05 13:18:02,690 - ERROR - 500: column "email" does not exist- 43
+2024-06-05 13:18:02,741 - ERROR - Database Error: column "email" does not exist- 43
+2024-06-05 13:18:02,741 - ERROR - 500: column "email" does not exist- 43
+2024-06-05 13:19:21,524 - ERROR - Database Error: column "email" does not exist- 43
+2024-06-05 13:19:21,525 - ERROR - 500: column "email" does not exist- 43
+2024-06-05 13:20:04,905 - ERROR - Database Error: column "email" does not exist- 43
+2024-06-05 13:20:04,905 - ERROR - 500: column "email" does not exist- 43
+2024-06-05 13:20:04,919 - ERROR - Database Error: column "email" does not exist- 43
+2024-06-05 13:20:04,919 - ERROR - 500: column "email" does not exist- 43
+2024-06-05 13:23:43,522 - ERROR - Database Error: column "email" does not exist- 43
+2024-06-05 13:23:43,522 - ERROR - 500: column "email" does not exist- 43
+2024-06-05 13:23:43,526 - ERROR - Database Error: column "email" does not exist- 43
+2024-06-05 13:23:43,526 - ERROR - 500: column "email" does not exist- 43
+2024-06-05 13:26:46,144 - ERROR - 'UserLogin' object has no attribute 'email'- 43
+2024-06-05 13:27:22,621 - ERROR - Database Error: relation "user_rights" does not exist- 43
+2024-06-05 13:27:22,621 - ERROR - 500: relation "user_rights" does not exist- 43
+2024-06-05 13:27:22,622 - ERROR - 500: relation "user_rights" does not exist- 43
+2024-06-05 13:30:48,231 - ERROR - Database Error: column "email" does not exist- 43
+2024-06-05 13:30:48,231 - ERROR - 500: column "email" does not exist- 43
+2024-06-05 13:33:15,864 - ERROR - Database Error: column "role_id" does not exist- 43
+2024-06-05 13:33:15,865 - ERROR - 500: column "role_id" does not exist- 43
+2024-06-05 13:33:15,873 - ERROR - Database Error: column "role_id" does not exist- 43
+2024-06-05 13:33:15,873 - ERROR - 500: column "role_id" does not exist- 43
+2024-06-05 14:35:09,414 - ERROR - Token Exception: Invalid header string: 'utf-8' codec can't decode byte 0xcb in position 10: invalid continuation byte- 54
+2024-06-05 14:57:12,002 - ERROR - Database Error: column "email" does not exist- 43
+2024-06-05 14:58:02,814 - ERROR - Database Error: column "email" does not exist- 43
+2024-06-05 15:00:09,867 - ERROR - Wrong Password!- 43
+2024-06-05 15:00:15,573 - ERROR - Wrong Password!- 43
+2024-06-05 15:00:25,214 - ERROR - Wrong Password!- 43
+2024-06-05 15:02:33,868 - ERROR - Index Error: list index out of range- 43
+2024-06-05 15:03:43,519 - ERROR - Wrong Password!- 43
+2024-06-05 15:35:10,230 - ERROR - Index Error: list index out of range- 43
+2024-06-05 15:35:57,993 - ERROR - Database Error: 'email'- 198
+2024-06-05 15:38:07,353 - ERROR - list index out of range- 43
+2024-06-05 15:38:07,353 - ERROR - Database Error: 500: list index out of range- 197
+2024-06-05 15:38:45,654 - ERROR - list index out of range- 43
+2024-06-05 15:38:45,655 - ERROR - Database Error: 500: list index out of range- 197
+2024-06-05 15:39:34,895 - ERROR - list index out of range- 43
+2024-06-05 15:39:34,896 - ERROR - Database Error: 500: list index out of range- 197
+2024-06-05 15:41:39,620 - ERROR - list index out of range- 43
+2024-06-05 15:41:39,622 - ERROR - Database Error: 500: list index out of range- 197
+2024-06-05 15:41:45,129 - ERROR - list index out of range- 43
+2024-06-05 15:41:45,129 - ERROR - Database Error: 500: list index out of range- 197
+2024-06-05 15:43:08,472 - ERROR - list index out of range- 43
+2024-06-05 15:43:08,473 - ERROR - Database Error: 500: list index out of range- 197
+2024-06-05 15:43:25,625 - ERROR - list index out of range- 43
+2024-06-05 15:43:25,626 - ERROR - Database Error: 500: list index out of range- 197
+2024-06-05 15:44:46,206 - ERROR - list index out of range- 43
+2024-06-05 15:44:46,206 - ERROR - Database Error: 500: list index out of range- 198
+2024-06-05 15:45:13,211 - ERROR - Database Error: name 'user_email' is not defined- 198
+2024-06-05 15:45:28,950 - ERROR - list index out of range- 43
+2024-06-05 15:45:28,950 - ERROR - Database Error: 500: list index out of range- 198
+2024-06-05 15:51:06,387 - ERROR - Database Error: syntax error at or near "and"- 43
+2024-06-05 15:53:38,540 - ERROR - Database Error: syntax error at or near "and"- 43
+2024-06-05 15:56:19,581 - ERROR - Database Error: syntax error at or near "and"- 43
+2024-06-05 15:56:39,879 - ERROR - Wrong Password!- 43
+2024-06-05 15:56:43,148 - ERROR - 'is_active'- 43
+2024-06-05 15:57:21,535 - ERROR - 'is_active'- 43
+2024-06-05 15:58:25,099 - ERROR - 'is_active'- 43
+2024-06-05 16:16:19,398 - ERROR - Token Exception: Invalid header string: 'utf-8' codec can't decode byte 0x92 in position 0: invalid start byte- 54
+2024-06-05 16:18:07,421 - ERROR - Wrong Password!- 43
+2024-06-05 16:25:48,333 - ERROR - Wrong Password!- 43
+2024-06-06 11:01:36,652 - ERROR - Wrong Password!- 43
+2024-06-06 11:01:42,790 - ERROR - Wrong Password!- 43
+2024-06-06 16:07:52,319 - ERROR - Email already exists!- 43
+2024-06-06 16:10:22,511 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:11:26,060 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:11:42,032 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:11:52,554 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:11:52,630 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:11:54,408 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:11:57,030 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:12:15,483 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:12:19,622 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:13:58,763 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:17:19,265 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:37:33,979 - ERROR - Email already exists!- 43
+2024-06-06 16:37:33,980 - ERROR - Email already exists!- 43
+2024-06-06 16:37:48,001 - ERROR - Email already exists!- 43
+2024-06-06 16:38:58,536 - ERROR - Email already exists!- 43
+2024-06-06 16:38:58,651 - ERROR - Email already exists!- 43
+2024-06-06 16:38:59,950 - ERROR - Email already exists!- 43
+2024-06-06 16:39:19,115 - ERROR - Email already exists!- 43
+2024-06-06 16:39:58,460 - ERROR - Email already exists!- 43
+2024-06-06 16:43:52,435 - ERROR - Email already exists!- 43
+2024-06-06 16:44:02,048 - ERROR - Email already exists!- 43
+2024-06-06 16:52:42,915 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-06 16:52:45,380 - ERROR - Database Error: 500: Incorrect OTP!- 196
+2024-06-11 11:09:05,415 - ERROR - Wrong Password!- 43
+2024-06-11 11:09:10,267 - ERROR - Wrong Password!- 43
+2024-06-11 11:09:48,231 - ERROR - Wrong Password!- 43
+2024-06-11 11:10:53,745 - ERROR - Wrong Password!- 43
+2024-06-11 11:11:20,407 - ERROR - Wrong Password!- 43
+2024-06-11 11:11:23,184 - ERROR - Wrong Password!- 43
+2024-06-11 11:11:26,755 - ERROR - Wrong Password!- 43
+2024-06-11 11:11:30,914 - ERROR - Wrong Password!- 43
+2024-06-11 11:11:33,767 - ERROR - Wrong Password!- 43
+2024-06-11 11:12:22,203 - ERROR - Wrong Password!- 43
+2024-06-11 11:15:41,473 - ERROR - Email already exists!- 43
+2024-06-11 14:58:13,365 - ERROR - Wrong Password!- 43
+2024-06-11 14:58:26,093 - ERROR - Wrong Password!- 43
+2024-06-11 14:58:32,557 - ERROR - Wrong Password!- 43
+2024-06-12 12:09:13,511 - ERROR - Index Error: list index out of range- 43
+2024-06-18 11:47:34,575 - ERROR - ID does not exist- 43
+2024-06-18 11:47:34,576 - ERROR - 500: ID does not exist- 43
+2024-06-18 11:47:34,576 - ERROR - Database Error: 500: ID does not exist- 535
+2024-06-18 11:47:36,183 - ERROR - ID does not exist- 43
+2024-06-18 11:47:36,183 - ERROR - 500: ID does not exist- 43
+2024-06-18 11:47:36,183 - ERROR - Database Error: 500: ID does not exist- 535
+2024-06-18 11:47:41,327 - ERROR - ID does not exist- 43
+2024-06-18 11:47:41,327 - ERROR - 500: ID does not exist- 43
+2024-06-18 11:47:41,327 - ERROR - Database Error: 500: ID does not exist- 535
+2024-06-18 12:13:13,555 - ERROR - Database Error: could not determine data type of parameter $3- 43
+2024-06-18 12:13:13,556 - ERROR - 500: could not determine data type of parameter $3- 43
+2024-06-18 12:13:13,556 - ERROR - Database Error: 500: could not determine data type of parameter $3- 473
+2024-06-18 12:13:44,560 - ERROR - Database Error: could not determine data type of parameter $3- 43
+2024-06-18 12:13:44,560 - ERROR - 500: could not determine data type of parameter $3- 43
+2024-06-18 12:13:44,560 - ERROR - Database Error: 500: could not determine data type of parameter $3- 473
+2024-06-18 12:37:13,351 - ERROR - 0- 43
+2024-06-18 12:37:13,352 - ERROR - Database Error: 500: 0- 494
+2024-06-18 12:37:25,949 - ERROR - 0- 43
+2024-06-18 12:37:25,949 - ERROR - Database Error: 500: 0- 494
+2024-06-18 12:38:23,510 - ERROR - 0- 43
+2024-06-18 12:38:23,510 - ERROR - Database Error: 500: 0- 494
+2024-06-18 12:39:37,345 - ERROR - 0- 43
+2024-06-18 12:39:37,346 - ERROR - Database Error: 500: 0- 494
+2024-06-18 12:41:12,956 - ERROR - 0- 43
+2024-06-18 12:41:12,956 - ERROR - Database Error: 500: 0- 494
+2024-06-18 12:43:14,622 - ERROR - 0- 43
+2024-06-18 12:43:14,623 - ERROR - Database Error: 500: 0- 494
+2024-06-18 12:45:14,024 - ERROR - 0- 43
+2024-06-18 12:45:14,024 - ERROR - Database Error: 500: 0- 494
+2024-06-18 12:46:19,137 - ERROR - 0- 43
+2024-06-18 12:46:19,137 - ERROR - Database Error: 500: 0- 495
+2024-06-18 12:47:05,094 - ERROR - 0- 43
+2024-06-18 12:47:05,095 - ERROR - Database Error: 500: 0- 495
+2024-06-18 16:48:45,727 - ERROR - Index Error: list index out of range- 43
+2024-06-18 16:50:10,455 - ERROR - Index Error: list index out of range- 43
+2024-06-18 16:51:40,546 - ERROR - Token Exception: Invalid header string: 'utf-8' codec can't decode byte 0xcb in position 4: invalid continuation byte- 55

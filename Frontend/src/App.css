@@ -1,0 +1,92 @@
+/* Custom.css */
+
+/* Define your custom primary color */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+:root {
+  --primary-color: #ee5726 ; /* Replace with your desired primary color */
+}
+body{
+  background: #323946;
+} 
+/* Import Bootstrap CSS */
+
+/* Override Bootstrap's primary color */
+.btn-primary {
+  color: #fff;
+  background-color: #d9490f;
+  border-color: #d9490f;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #d9490f;
+  border-color: #d43f04;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #d9490f;
+  border-color: #d43f04;
+  box-shadow: 0 0 0 0.25rem rgba(238, 87, 38, 0.5);
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #d9490f;
+  border-color: #d9490f;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #d43f04;
+  border-color: #d13400;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(238, 87, 38, 0.5);
+}
+
+.btn-outline-primary {
+  color: #d9490f;
+  border-color: #d9490f;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #d9490f;
+  border-color: #d9490f;
+}
+
+.btn-outline-primary:focus,
+.btn-outline-primary.focus {
+  color: #fff;
+  background-color: #d9490f;
+  border-color: #d9490f;
+  box-shadow: 0 0 0 0.25rem rgba(238, 87, 38, 0.5);
+}
+
+.btn-outline-primary.disabled,
+.btn-outline-primary:disabled {
+  color: #d9490f;
+  background-color: transparent;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.show > .btn-outline-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #d9490f;
+  border-color: #d9490f;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(238, 87, 38, 0.5);
+}

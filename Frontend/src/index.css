@@ -1,0 +1,32 @@
+
+*{
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box; 
+  font-family: 'Helvetica', sans-serif;
+}
+
+::selection {
+  color: white;
+  background: black;
+}
+body{
+  background: #323946;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+.navbar-custom {
+  background-color: #1f242d !important;
+  color: #fff !important;
+}
+
+.navbar-custom .nav-link {
+  color: #fff !important;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #ccc !important;
+}
