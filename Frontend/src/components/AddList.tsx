@@ -16,7 +16,10 @@ interface AddListProps {
 
 const listSchema = yup.object().shape({
   name: yup.string().required("List name is required"),
-  description: yup.string().required("Description is required"),
+  description: yup
+    .string()
+    .max(100, "Maximum 100 characters is allowed.")
+    .required("Description is required"),
   status: yup.string().required("Status is required"),
 });
 
@@ -115,7 +118,7 @@ const AddList: React.FC<AddListProps> = ({ onAdd, list_id }) => {
             {list_id ? "Edit List" : "Add New List"}
           </span>
         }
-        visible={isModalVisible}
+        open={isModalVisible}
         onCancel={handleCloseModal}
         footer={
           <div className="d-flex justify-content-center gap-2 mt-4 mb-2">

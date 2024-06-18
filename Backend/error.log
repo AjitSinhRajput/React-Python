@@ -149,3 +149,31 @@
 2024-06-18 16:48:45,727 - ERROR - Index Error: list index out of range- 43
 2024-06-18 16:50:10,455 - ERROR - Index Error: list index out of range- 43
 2024-06-18 16:51:40,546 - ERROR - Token Exception: Invalid header string: 'utf-8' codec can't decode byte 0xcb in position 4: invalid continuation byte- 55
+2024-06-18 16:52:30,580 - ERROR - Token Exception: Not enough segments- 55
+2024-06-18 17:24:07,037 - ERROR - Database Error: value too long for type character varying(100)- 43
+2024-06-18 17:24:07,038 - ERROR - 500: value too long for type character varying(100)- 43
+2024-06-18 17:24:07,038 - ERROR - Database Error: 500: value too long for type character varying(100)- 457
+2024-06-18 17:24:22,849 - ERROR - Database Error: value too long for type character varying(100)- 43
+2024-06-18 17:24:22,849 - ERROR - 500: value too long for type character varying(100)- 43
+2024-06-18 17:24:22,849 - ERROR - Database Error: 500: value too long for type character varying(100)- 457
+2024-06-18 17:24:34,410 - ERROR - Database Error: value too long for type character varying(100)- 43
+2024-06-18 17:24:34,411 - ERROR - 500: value too long for type character varying(100)- 43
+2024-06-18 17:24:34,411 - ERROR - Database Error: 500: value too long for type character varying(100)- 457
+2024-06-18 17:24:49,482 - ERROR - Database Error: value too long for type character varying(100)- 43
+2024-06-18 17:24:49,482 - ERROR - 500: value too long for type character varying(100)- 43
+2024-06-18 17:24:49,482 - ERROR - Database Error: 500: value too long for type character varying(100)- 457
+2024-06-18 17:25:01,055 - ERROR - Database Error: value too long for type character varying(100)- 43
+2024-06-18 17:25:01,055 - ERROR - 500: value too long for type character varying(100)- 43
+2024-06-18 17:25:01,055 - ERROR - Database Error: 500: value too long for type character varying(100)- 457
+2024-06-18 18:06:02,370 - ERROR - Database Error: [Errno 13] Permission denied: 'C:\\Users\\Admin\\AppData\\Local\\Temp\\tmp8t7x7tok'- 539
+2024-06-18 18:10:06,023 - ERROR - Database Error: [Errno 13] Permission denied: 'D:\\Ajit React Python Custom\\Backend\\static\\export_temp\\tmploa_9hes'- 538
+2024-06-18 18:16:19,399 - ERROR - Database Error: [Errno 2] No such file or directory: 'D:\\Ajit React Python Custom\\Backend\\192.168.10.121\\static\\export_temp\\tmpqnyz4zgs'- 538
+2024-06-18 18:16:51,765 - ERROR - Database Error: [Errno 22] Invalid argument: 'D:\\Ajit React Python Custom\\Backend\\http:\\192.168.10.121\\static\\export_temp\\tmpeebjpd9_'- 538
+2024-06-18 18:17:30,182 - ERROR - Database Error: [Errno 22] Invalid argument: 'D:\\Ajit React Python Custom\\Backend\\http:\\192.168.10.121\\static\\export_temp\\tmp02t54j18'- 538
+2024-06-18 18:20:03,277 - ERROR - Database Error: [Errno 13] Permission denied: 'D:\\Ajit React Python Custom\\Backend\\static\\export_temp\\tmpv9_yi1d4'- 538
+2024-06-18 18:21:15,562 - ERROR - Database Error: [Errno 13] Permission denied: 'D:\\Ajit React Python Custom\\Backend\\static\\export_temp\\tmpmjqard91'- 538
+2024-06-18 18:24:06,183 - ERROR - Database Error: [Errno 13] Permission denied: 'D:\\Ajit React Python Custom\\Backend\\static\\export_temp\\tmp4fmtsiqv'- 547
+2024-06-18 18:29:13,741 - ERROR - Database Error: module 'openpyxl.writer.excel' has no attribute 'save_virtual_workbook'- 538
+2024-06-18 19:00:00,496 - ERROR - Error exporting lists: [WinError 17] The system cannot move the file to a different disk drive: 'C:\\Users\\Admin\\AppData\\Local\\Temp\\tmppthn_r93.xlsx' -> 'D:\\Ajit React Python Custom\\Backend\\static\\exported_lists.xlsx'- 568
+2024-06-18 19:05:57,965 - ERROR - Error exporting lists: 400: Invalid format specified. Use "excel" or "csv".- 562
+2024-06-18 19:06:12,900 - ERROR - Error exporting lists: 400: Invalid format specified. Use "excel" or "csv".- 562

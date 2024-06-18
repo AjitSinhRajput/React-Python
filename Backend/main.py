@@ -1,7 +1,10 @@
 import io
+import tempfile
 from fastapi import Body, FastAPI, Depends, File, Form,Header, Query, UploadFile,Request,WebSocket
-from fastapi.responses import FileResponse,JSONResponse
+from fastapi.responses import FileResponse,JSONResponse, StreamingResponse
 from contextlib import asynccontextmanager
+
+import openpyxl
 from email_config import EmailConfig
 from database import *
 from models import *
@@ -494,6 +497,76 @@ async def get_lists(page : int, page_size : int,decoded_token: dict = Depends(de
     except Exception as e:
         logging.error(f"Database Error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/v1/export-all-lists", tags=['List'])
+async def export_lists(format: str, decoded_token: dict = Depends(decodeJWT)):
+    try:
+        lists = await export_lists_db(app, decoded_token['user_id'])
+        IP_ADDR = os.getenv("FILE_IP")
+        export_dir = 'D:/Ajit React Python Custom/Backend/static/export_temp/'
+        
+
+        if lists:
+            if format == 'excel':
+                file_name = 'exported_lists.xlsx'
+                # Create an Excel workbook and sheet
+                wb = openpyxl.Workbook()
+                ws = wb.active
+                ws.title = "Lists"
+                
+                # Write the header
+                headers = ["ID", "Name", "Status", "Description"]
+                ws.append(headers)
+                
+                # Write the data
+                for list_item in lists:
+                    ws.append([list_item["id"], list_item["name"], list_item["status"], list_item["description"]])
+                
+                os.makedirs(export_dir, exist_ok=True)
+
+                # Save the workbook to a temporary file in the specified directory
+                temp_file_path = os.path.join(export_dir,file_name)
+                wb.save(temp_file_path)
+                
+                temp_file_path = f"{IP_ADDR}/{file_name}"
+                # Return the file path as a response
+                return {"file_path": temp_file_path}
+            
+            elif format == 'csv':
+                file_name = 'exported_lists.csv'
+                # Specify the directory path to store the file
+                # export_dir = 'D:/Ajit React Python Custom/Backend/static/export_temp/'
+                os.makedirs(export_dir, exist_ok=True)
+                
+                # Create a CSV file
+                temp_file_path = os.path.join(export_dir, file_name)
+                with open(temp_file_path, mode='w', newline='') as temp_file:
+                    csv_writer = csv.writer(temp_file)
+                    
+                    # Write header
+                    csv_writer.writerow(["ID", "Name", "Status", "Description"])
+                    
+                    # Write data
+                    for list_item in lists:
+                        csv_writer.writerow([list_item["id"], list_item["name"], list_item["status"], list_item["description"]])
+
+                temp_file_path = f"{IP_ADDR}/{file_name}"
+                # Return the file path as a response
+                return {"file_path": temp_file_path}
+            
+            else:
+                raise HTTPException(status_code=400, detail='Invalid format specified. Use "excel" or "csv".')
+        
+        else:
+            return {
+                'message': 'Empty Lists.',
+                'status': 1
+            }
+    
+    except Exception as e:
+        logging.error(f"Error exporting lists: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+    
 
 @app.get("/api/v1/get-list", tags=['List'])
 async def get_list(list_id: int,decoded_token: dict = Depends(decodeJWT)):

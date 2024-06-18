@@ -532,6 +532,19 @@ async def get_lists_db(app, user_id, page, page_size):
         return lists, total_count
     except Exception as e:
         await handle_database_exception(e)
+    
+async def export_lists_db(app, user_id):
+    try:
+        # Query to get paginated lists
+        export_lists_query = '''
+        SELECT * FROM public.lists where user_id = $1;
+        '''
+        lists = await execute_query(app.state.db_pool, export_lists_query,user_id)
+
+        # Return lists along with the total count
+        return lists
+    except Exception as e:
+        await handle_database_exception(e)
 
 async def get_list_by_id_db(app,list_id,user_id):
     try:

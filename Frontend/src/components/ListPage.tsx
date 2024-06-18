@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AddList from "./AddList";
-import { Table } from "antd";
+import { Divider, Modal, Spin, Table } from "antd";
 import { toast } from "react-toastify";
 import useApi from "../redux/hooks/useApi";
 
@@ -16,7 +16,8 @@ const ListPage = () => {
     current: 1,
     pageSize: 10,
   });
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [downloadLink, setDownloadLink] = useState("");
   const onSuccessDelete = async (response: any) => {
     toast.success(response?.data[0]?.message);
     callFetchLists(
@@ -58,7 +59,10 @@ const ListPage = () => {
       title: "Index",
       dataIndex: "index",
       key: "index",
-      render: (text: any, record: any, index: number) => index + 1,
+      render: (text: any, record: any, index: number) => {
+        // Calculate the index based on the sorted order of the data by 'id'
+        return dataSource.findIndex((item: any) => item.id === record.id) + 1;
+      },
     },
 
     {
@@ -70,7 +74,7 @@ const ListPage = () => {
       title: "Status",
       dataIndex: "status",
       key: "status",
-      render: (status: string) => {
+      render: (status: string, record: any) => {
         let clname = "";
         switch (status) {
           case "active":
@@ -87,7 +91,7 @@ const ListPage = () => {
             break;
         }
         return (
-          <span className={`badge p-2 ${clname}`}>
+          <span className={`badge p-2 ${clname}`} key={record?.id}>
             {status.charAt(0).toUpperCase() + status.slice(1)}
           </span>
         );
@@ -101,10 +105,10 @@ const ListPage = () => {
     {
       title: "Action",
       key: "action",
-      render: (text: any, record: any) => {
+      render: (index: any, record: any) => {
         // console.log(record.id); // Print the record to the console for debugging
         return (
-          <div className="d-flex gap-2">
+          <div className="d-flex gap-2" key={index}>
             <AddList onAdd={handleAddList} list_id={record?.id} />
             <button
               className="btn btn-outline-danger btn-sm"
@@ -123,7 +127,11 @@ const ListPage = () => {
 
   const onSuccessLists = async (response: any) => {
     toast.success(response?.data[0]?.message);
-    setDataSource(response?.data?.lists);
+    // setDataSource(response?.data?.lists);
+    const sortedData = response?.data?.lists.sort(
+      (a: any, b: any) => a.id - b.id
+    );
+    setDataSource(sortedData);
     setPagination({
       ...pagination,
       total: response?.data?.total_count,
@@ -144,13 +152,49 @@ const ListPage = () => {
     setPagination(pagination);
   };
 
+  const onSuccessExport = async (response: any) => {
+    // Assume the response contains a file URL
+    // console.log(response);
+    const fileURL = response?.data?.file_path;
+    setDownloadLink(fileURL);
+    setIsModalVisible(true);
+  };
+
+  const onFailureExport = (error: any) => {
+    toast.error(error.response.data.detail);
+  };
+
+  const { isloading: isloadingExport, callFetch: callFetchExport } = useApi({
+    onSuccess: onSuccessExport,
+    onFailure: onFailureExport,
+    header: "application/json",
+  });
+  const handleExportCSV = () => {
+    callFetchExport("get", `export-all-lists?format=csv`);
+  };
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   return (
     <div className="mt-2 ">
+      {isloadingExport ? <Spin fullscreen size="large" /> : ""}
       <div className="d-flex align-items-center mb-4 w-100">
         <div>
           <h1>Listing Page</h1>
         </div>
-        <div className="ms-auto">
+        <div className="ms-auto d-flex gap-3">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleExportCSV}
+            disabled={isloadingExport}
+          >
+            Export as CSV
+          </button>
           <AddList onAdd={handleAddList} />
         </div>
       </div>
@@ -172,6 +216,48 @@ const ListPage = () => {
         loading={isloadingLists}
         onChange={handleTableChange}
       />
+      <Modal
+        title="Download Excel File"
+        open={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        maskClosable={false}
+        footer={
+          isloadingExport ? (
+            ""
+          ) : (
+            <div className="d-flex gap-3 align-items-center justify-content-center">
+              <button
+                type="button"
+                className="btn btn-outline-primary fw-bold"
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
+
+              <button
+                type="button"
+                className="btn btn-primary fw-bold"
+                onClick={handleOk}
+              >
+                <a href={downloadLink} download>
+                  <span className="text-white"> Download</span>
+                </a>
+              </button>
+            </div>
+          )
+        }
+      >
+        {isloadingExport ? (
+          ""
+        ) : (
+          <p>Your export is ready. Click on Download to download the file.</p>
+        )}
+
+        {/* <a href={downloadLink} download>
+          Download Excel File
+        </a> */}
+      </Modal>
     </div>
   );
 };
