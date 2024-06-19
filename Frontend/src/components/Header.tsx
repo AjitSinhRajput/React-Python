@@ -8,7 +8,7 @@ import {
 import Logo from "../../public/Logo.png";
 import { useSelector } from "react-redux";
 import { MdOutlineSettings } from "react-icons/md";
-import { GrContact } from "react-icons/gr";
+import { GrClose, GrContact } from "react-icons/gr";
 // Import the CSS file
 import { SlMenu } from "react-icons/sl";
 import { IoClose } from "react-icons/io5";
@@ -42,7 +42,7 @@ const CustomHeader = () => {
           className="btn btn-light d-block d-lg-none fs-5"
           onClick={toggleMenu}
         >
-          {collapsed ? <SlMenu /> : <IoClose />}
+          {collapsed ? <SlMenu /> : <GrClose />}
         </button>
         <div className={`collapse navbar-collapse ${collapsed ? "" : "show"}`}>
           <ul className="navbar-nav mb-2 mb-lg-0 d-flex w-100 d-flex gap-lg-3">
