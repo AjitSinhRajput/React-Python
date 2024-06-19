@@ -23,7 +23,7 @@ const App: React.FC = () => {
       <div className="d-flex flex-column min-vh-100">
         <CustomHeader />
         <div className="flex-grow-1">
-          <div className="container-fluid px-4 py-2 text-white">
+          <div className="container-fluid px-4 mb-5 mt-4 text-white">
             <Routes>
               <Route path="/" element={<Home />} />
               {isLogedin ? (

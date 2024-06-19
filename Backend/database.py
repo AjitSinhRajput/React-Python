@@ -302,18 +302,16 @@ async def register_pwd_db(app, user_data,is_active = True):
     except Exception as e:
         await handle_database_exception(e)
 
-async def edit_user_db(app,user_data,user_id,admin_id):
+async def edit_user_db(app,user_data,user_id):
     try:
-        
         update_user = '''
         UPDATE users
-        SET email=$1,first_name=$2, last_name=$3,phone=$4,company=$5,role_id=$6
-        WHERE id=$7;
+        SET user_name=$1,phone=$2 WHERE id=$3;
         '''
         async with app.state.db_pool.acquire() as connection:
             async with connection.transaction():
                 if user_id:
-                    admin_id = await connection.fetchval(update_user, user_data.email,user_data.first_name,user_data.last_name,user_data.phone,user_data.company,int(user_data.role_id),user_id)
+                    result = await connection.fetchval(update_user,user_data.user_name,user_data.phone,user_id)
                 else:
                     raise ValueError("user_id cannot be None")
         return True
@@ -374,7 +372,7 @@ async def list_all_users(app,page_number,page_size,admin_id):
 async def view_user_details(app,user_id):
     try:
         get_user_details = '''
-        SELECT id as user_id,user_email,user_name,is_active from users where id=$1
+        SELECT id as user_id,user_email,user_name, phone from users where id=$1
         '''
 
         user_details = await execute_query(app.state.db_pool,get_user_details,user_id)

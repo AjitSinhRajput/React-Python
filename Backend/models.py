@@ -11,6 +11,14 @@ class UserRegisteration(BaseModel):
     password: str
     confirm_password : str
 
+class UserProfileEdit(BaseModel):
+    user_name: str
+    # user_email: EmailStr
+    phone: str
+    # is_active:Optional[bool] = False
+    # password: str
+    # confirm_password : str
+
 class OTPVerification(BaseModel):
     email: EmailStr
     otp: str
@@ -26,9 +34,15 @@ class UserLogin(BaseModel):
         return value.strip()  # Remove leading and trailing whitespace
     
 class ChangePWD(BaseModel):
-    email:EmailStr
+   
+    # email:EmailStr
     # old_password: str
     new_password: str
+    @validator("new_password")
+    def validate_password(cls, value):
+        if not value.strip():  # Check if the password is empty or contains only whitespace
+            raise ValueError("Password cannot be empty")
+        return value.strip()  # Remove leading and trailing whitespace
 
 class ForgotPWD(BaseModel):
     email:EmailStr

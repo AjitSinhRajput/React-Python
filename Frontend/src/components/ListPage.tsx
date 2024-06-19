@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import AddList from "./AddList";
-import { Divider, Modal, Spin, Table } from "antd";
+import { Divider, Dropdown, Menu, Modal, Spin, Table } from "antd";
 import { toast } from "react-toastify";
 import useApi from "../redux/hooks/useApi";
+import { DownOutlined } from "@ant-design/icons";
 
 interface Pagination {
   current: number;
@@ -19,7 +20,7 @@ const ListPage = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [downloadLink, setDownloadLink] = useState("");
   const onSuccessDelete = async (response: any) => {
-    toast.success(response?.data[0]?.message);
+    toast.success(response?.data?.message);
     callFetchLists(
       "get",
       `get-all-lists?page=${pagination.current}&page_size=${pagination.pageSize}`
@@ -169,8 +170,8 @@ const ListPage = () => {
     onFailure: onFailureExport,
     header: "application/json",
   });
-  const handleExportCSV = () => {
-    callFetchExport("get", `export-all-lists?format=csv`);
+  const handleExport = (type: string) => {
+    callFetchExport("get", `export-all-lists?format=${type}`);
   };
   const handleOk = () => {
     setIsModalVisible(false);
@@ -179,22 +180,29 @@ const ListPage = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+  const exportMenu = (
+    <Menu>
+      <Menu.Item key="csv" onClick={() => handleExport("csv")}>
+        Export as CSV
+      </Menu.Item>
+      <Menu.Item key="excel" onClick={() => handleExport("excel")}>
+        Export as Excel
+      </Menu.Item>
+    </Menu>
+  );
   return (
-    <div className="mt-2 ">
+    <div className="">
       {isloadingExport ? <Spin fullscreen size="large" /> : ""}
       <div className="d-flex align-items-center mb-4 w-100">
         <div>
           <h1>Listing Page</h1>
         </div>
         <div className="ms-auto d-flex gap-3">
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={handleExportCSV}
-            disabled={isloadingExport}
-          >
-            Export as CSV
-          </button>
+          <Dropdown overlay={exportMenu}>
+            <button type="button" className="btn btn-primary">
+              Export <DownOutlined />
+            </button>
+          </Dropdown>
           <AddList onAdd={handleAddList} />
         </div>
       </div>
@@ -217,7 +225,7 @@ const ListPage = () => {
         onChange={handleTableChange}
       />
       <Modal
-        title="Download Excel File"
+        title="Download Exported File"
         open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -251,7 +259,10 @@ const ListPage = () => {
         {isloadingExport ? (
           ""
         ) : (
-          <p>Your export is ready. Click on Download to download the file.</p>
+          <p>
+            Your export is ready. You can save the file by clicking on Download
+            button.
+          </p>
         )}
 
         {/* <a href={downloadLink} download>

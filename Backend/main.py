@@ -288,12 +288,29 @@ async def user_login(user_data:UserLogin):
 #     except HTTPException as e:
 #         raise HTTPException(status_code=500, detail=str(e.detail))
 
-@app.post("/api/v1/edit-user/{user_id}", tags=["User"])
-async def edit_user(user_id:int,user_data:UserRegisteration,decoded_token: dict = Depends(decodeJWT)):
-    try:
-        admin_id = decoded_token['admin_id']
+# @app.post("/api/v1/edit-user", tags=["User"])
+# async def edit_user(user_data:UserRegisteration,decoded_token: dict = Depends(decodeJWT)):
+#     try:
+#         user_id = decoded_token['user_id']
 
-        is_executed = await edit_user_db(app, user_data,user_id,admin_id)
+#         is_executed = await edit_user_db(app, user_data,user_id)
+
+#         if is_executed:
+#             return {
+#                 'status': '1',
+#                 'message':'User Edited Successfully'
+#             }
+#     except HTTPException as e:
+#         print("Caught HTTPException:", e)
+#         raise HTTPException(status_code=500, detail=str(e.detail))
+
+
+@app.patch("/api/v1/edit-user", tags=["User"])
+async def edit_user(user_data:UserProfileEdit,decoded_token: dict = Depends(decodeJWT)):
+    try:
+        user_id = decoded_token['user_id']
+
+        is_executed = await edit_user_db(app, user_data,user_id)
 
         if is_executed:
             return {
@@ -304,10 +321,11 @@ async def edit_user(user_id:int,user_data:UserRegisteration,decoded_token: dict 
         print("Caught HTTPException:", e)
         raise HTTPException(status_code=500, detail=str(e.detail))
 
-@app.get("/api/v1/view-user/{user_id}", tags=["User"])
-async def view_user_data(user_id:int,decoded_token: dict = Depends(decodeJWT)):
+@app.get("/api/v1/view-user", tags=["User"])
+async def view_user_data(decoded_token: dict = Depends(decodeJWT)):
     try:
-        user_details,user_rights = await view_user_details(app,user_id)
+        user_id = decoded_token['user_id']
+        user_details = await view_user_details(app,user_id)
         return user_details
     except HTTPException as e:
         print("Caught HTTPException:", e)
@@ -339,14 +357,15 @@ async def delete_user_data(user_id:int,decoded_token: dict = Depends(decodeJWT))
 #         print("Caught HTTPException:", e)
 #         raise HTTPException(status_code=500, detail=str(e.detail))
   
-@app.post("/api/v1/change-pwd", tags=["User"])
+@app.patch("/api/v1/change-pwd", tags=["User"])
 async def change_pwd(change_pwd:ChangePWD,decoded_token: dict = Depends(decodeJWT)):
     try:
         user_id = decoded_token['user_id']
 
-        is_verified = await verify_old_pwd(app,user_id,change_pwd.old_password)
+        # is_verified = await verify_old_pwd(app,user_id,change_pwd.old_password)
 
-        if is_verified:
+        # if is_verified:
+        if True:
             #Hash The Password
             new_password = change_pwd.new_password
             encrypted_password = encrypt_password(new_password)
@@ -355,7 +374,10 @@ async def change_pwd(change_pwd:ChangePWD,decoded_token: dict = Depends(decodeJW
             is_updated = await set_new_pwd(app,user_id, new_password)
 
             if is_updated:
-                return "Password is changed!"
+                return {
+                    "status":1,
+                    "message":"Password is changed!"
+                }
         else:
            raise HTTPException(status_code=500, detail="Old password is incorrect!")
 

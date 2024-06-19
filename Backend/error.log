@@ -177,3 +177,6 @@
 2024-06-18 19:00:00,496 - ERROR - Error exporting lists: [WinError 17] The system cannot move the file to a different disk drive: 'C:\\Users\\Admin\\AppData\\Local\\Temp\\tmppthn_r93.xlsx' -> 'D:\\Ajit React Python Custom\\Backend\\static\\exported_lists.xlsx'- 568
 2024-06-18 19:05:57,965 - ERROR - Error exporting lists: 400: Invalid format specified. Use "excel" or "csv".- 562
 2024-06-18 19:06:12,900 - ERROR - Error exporting lists: 400: Invalid format specified. Use "excel" or "csv".- 562
+2024-06-19 17:15:56,874 - ERROR - Wrong Password!- 43
+2024-06-19 17:16:03,168 - ERROR - Wrong Password!- 43
+2024-06-19 17:18:26,721 - ERROR - Wrong Password!- 43

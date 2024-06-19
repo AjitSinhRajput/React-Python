@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Login from "./Login";
 import Logout from "./Logout";
 import Register from "./Register";
+import EditProfile from "./EditProfile";
 // Define validation schema using Yup without custom error messages
 
 const UserSettings: React.FC = () => {
@@ -25,6 +26,10 @@ const UserSettings: React.FC = () => {
         {
           key: "Login",
           tab: "Logout",
+        },
+        {
+          key: "EditProfile",
+          tab: "Edit Profile",
         },
       ]
     : [
@@ -45,6 +50,7 @@ const UserSettings: React.FC = () => {
   const contentList: Record<string, React.ReactNode> = {
     Login: <Login setKey={(key) => SetLogutKey(key)} />,
     Register: <Register setKey={(key) => SetLogutKey(key)} />,
+    EditProfile: <EditProfile setKey={(key) => SetLogutKey(key)} />,
   };
   const [activeTabKey1, setActiveTabKey1] = useState<string>("Login");
   const onTab1Change = (key: string) => {
@@ -54,7 +60,7 @@ const UserSettings: React.FC = () => {
   return (
     <div className="">
       <div className="container">
-        <div className="row justify-content-center mt-5">
+        <div className="row justify-content-center">
           <Card
             style={{ maxWidth: "40em", height: "auto" }}
             title={
