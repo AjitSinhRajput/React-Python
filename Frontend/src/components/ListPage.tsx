@@ -193,11 +193,11 @@ const ListPage = () => {
   return (
     <div className="">
       {isloadingExport ? <Spin fullscreen size="large" /> : ""}
-      <div className="d-flex align-items-center mb-4 w-100">
-        <div>
+      <div className="d-flex row align-items-center mb-4 w-100">
+        <div className="col-lg-8 col-md-7">
           <h1>Listing Page</h1>
         </div>
-        <div className="ms-auto d-flex gap-3">
+        <div className="ms-auto d-flex gap-3 col-md-5 col-lg-4">
           <Dropdown overlay={exportMenu}>
             <button type="button" className="btn btn-primary">
               Export <DownOutlined />
