@@ -329,7 +329,9 @@ const ListPage = () => {
         rowKey="id"
         pagination={{
           ...pagination,
-          total: pagination.total,
+          // total: pagination.total,
+          showTotal: (total, range) =>
+            `${range[0]}-${range[1]} of ${total} records`,
           position: ["bottomCenter"],
         }}
         loading={isloadingLists}
