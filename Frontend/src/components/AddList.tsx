@@ -12,6 +12,7 @@ const { Option } = Select;
 interface AddListProps {
   onAdd: () => void;
   list_id?: number; // Optional list_id prop
+  className?: string;
 }
 
 const listSchema = yup.object().shape({
@@ -23,7 +24,7 @@ const listSchema = yup.object().shape({
   status: yup.string().required("Status is required"),
 });
 
-const AddList: React.FC<AddListProps> = ({ onAdd, list_id }) => {
+const AddList: React.FC<AddListProps> = ({ onAdd, list_id, className }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const {
@@ -73,7 +74,7 @@ const AddList: React.FC<AddListProps> = ({ onAdd, list_id }) => {
   };
 
   const onSuccessAdd = async (response: any) => {
-    toast.success(response?.data[0]?.message);
+    toast.success(response?.data?.message);
     handleCloseModal();
     onAdd();
   };
@@ -101,7 +102,7 @@ const AddList: React.FC<AddListProps> = ({ onAdd, list_id }) => {
 
   return (
     <>
-      <div className="">
+      <div className={className}>
         <button
           className={`btn ${
             list_id ? "btn-outline-success btn-sm " : "btn-primary"

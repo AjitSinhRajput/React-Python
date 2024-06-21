@@ -180,3 +180,130 @@
 2024-06-19 17:15:56,874 - ERROR - Wrong Password!- 43
 2024-06-19 17:16:03,168 - ERROR - Wrong Password!- 43
 2024-06-19 17:18:26,721 - ERROR - Wrong Password!- 43
+2024-06-21 18:20:37,445 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,446 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,446 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:20:37,468 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,468 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,468 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:20:37,495 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,495 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,496 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:20:37,555 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,556 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,556 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:20:37,621 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,622 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,622 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:20:37,640 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,640 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,640 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:20:37,669 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,670 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,670 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:20:37,734 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,735 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,735 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:20:37,767 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,767 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:20:37,767 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:14,792 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:14,792 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:14,792 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:14,850 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:14,850 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:14,850 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:14,891 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:14,891 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:14,891 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:14,978 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:14,979 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:14,979 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,024 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,024 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,025 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,038 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,038 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,039 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,135 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,135 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,135 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,250 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,250 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,250 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,295 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,295 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,295 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,315 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,315 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,315 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,340 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,340 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,340 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,363 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,363 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,363 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,412 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,412 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,412 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,428 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,428 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,428 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,445 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,446 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,446 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,460 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,460 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,460 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,477 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,477 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,477 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,521 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,521 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,521 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,536 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,537 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,537 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,551 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,551 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,552 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:23:15,867 - ERROR - Database Error: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,867 - ERROR - 500: could not determine data type of parameter $2- 43
+2024-06-21 18:23:15,867 - ERROR - Database Error: 500: could not determine data type of parameter $2- 520
+2024-06-21 18:47:23,120 - ERROR - the server expects 1 argument for this query, 3 were passed
+HINT:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:47:23,121 - ERROR - 500:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:47:23,121 - ERROR - Database Error: 500:  Check the query against the passed list of arguments.- 523
+2024-06-21 18:49:42,095 - ERROR - the server expects 1 argument for this query, 3 were passed
+HINT:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:49:42,095 - ERROR - 500:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:49:42,096 - ERROR - Database Error: 500:  Check the query against the passed list of arguments.- 523
+2024-06-21 18:49:48,122 - ERROR - the server expects 1 argument for this query, 3 were passed
+HINT:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:49:48,123 - ERROR - 500:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:49:48,123 - ERROR - Database Error: 500:  Check the query against the passed list of arguments.- 523
+2024-06-21 18:49:52,140 - ERROR - the server expects 1 argument for this query, 3 were passed
+HINT:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:49:52,141 - ERROR - 500:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:49:52,141 - ERROR - Database Error: 500:  Check the query against the passed list of arguments.- 523
+2024-06-21 18:49:59,277 - ERROR - the server expects 1 argument for this query, 3 were passed
+HINT:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:49:59,278 - ERROR - 500:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:49:59,278 - ERROR - Database Error: 500:  Check the query against the passed list of arguments.- 523
+2024-06-21 18:50:44,570 - ERROR - the server expects 1 argument for this query, 3 were passed
+HINT:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:50:44,570 - ERROR - 500:  Check the query against the passed list of arguments.- 43
+2024-06-21 18:50:44,571 - ERROR - Database Error: 500:  Check the query against the passed list of arguments.- 523
+2024-06-21 19:04:45,868 - ERROR - object of type 'NoneType' has no len()- 43
+2024-06-21 19:04:45,868 - ERROR - Database Error: 500: object of type 'NoneType' has no len()- 527
+2024-06-21 19:04:49,010 - ERROR - Database Error: could not determine data type of parameter $1- 43
+2024-06-21 19:04:49,010 - ERROR - 500: could not determine data type of parameter $1- 43
+2024-06-21 19:04:49,010 - ERROR - Database Error: 500: could not determine data type of parameter $1- 527
+2024-06-21 19:05:30,897 - ERROR - the server expects 1 argument for this query, 3 were passed
+HINT:  Check the query against the passed list of arguments.- 43
+2024-06-21 19:05:30,898 - ERROR - 500:  Check the query against the passed list of arguments.- 43
+2024-06-21 19:05:30,898 - ERROR - Database Error: 500:  Check the query against the passed list of arguments.- 527
+2024-06-21 19:05:34,374 - ERROR - the server expects 15 arguments for this query, 17 were passed
+HINT:  Check the query against the passed list of arguments.- 43
+2024-06-21 19:05:34,374 - ERROR - 500:  Check the query against the passed list of arguments.- 43
+2024-06-21 19:05:34,374 - ERROR - Database Error: 500:  Check the query against the passed list of arguments.- 527

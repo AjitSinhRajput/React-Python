@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import AddList from "./AddList";
 import { Divider, Dropdown, Menu, Modal, Spin, Table } from "antd";
 import { toast } from "react-toastify";
 import useApi from "../redux/hooks/useApi";
 import { DownOutlined } from "@ant-design/icons";
+import { debounce } from "lodash";
 
 interface Pagination {
   current: number;
@@ -36,20 +37,30 @@ const ListPage = () => {
     onFailure: onFailureDelete,
     header: "application/json",
   });
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState<string[]>([]);
+
   useEffect(() => {
-    // Fetch initial data when component mounts
-    callFetchLists(
-      "get",
-      `get-all-lists?page=${pagination.current}&page_size=${pagination.pageSize}`
-    );
-  }, [pagination.current, pagination.pageSize]);
+    fetchLists();
+  }, [pagination.current, pagination.pageSize, searchTerm, statusFilter]);
 
   const handleAddList = () => {
-    callFetchLists(
-      "get",
-      `get-all-lists?page=${pagination.current}&page_size=${pagination.pageSize}`
-    );
+    fetchLists();
   };
+
+  const fetchLists = useCallback(() => {
+    let url = `get-all-lists?page=${pagination.current}&page_size=${pagination.pageSize}`;
+    if (searchTerm) {
+      url += `&search=${searchTerm}`;
+    }
+    // Check if statusFilter is not empty and is an array
+    if (statusFilter && statusFilter.length > 0) {
+      // Convert statusFilter array to a comma-separated string
+      const statusParams = statusFilter.join(",");
+      url += `&statuses=${statusParams}`;
+    }
+    callFetchLists("get", url);
+  }, [pagination.current, pagination.pageSize, searchTerm, statusFilter]);
 
   const handleEdit = (id: any) => {
     console.log("Edit ID:", id);
@@ -75,6 +86,29 @@ const ListPage = () => {
       title: "Status",
       dataIndex: "status",
       key: "status",
+
+      filters: [
+        {
+          text: "Pending",
+          value: "pending",
+        },
+        {
+          text: "Active",
+          value: "active",
+        },
+        {
+          text: "Inactive",
+          value: "inactive",
+        },
+      ],
+      // onFilter: (value: any, record: any) => {
+      //   // return record.status.indexOf(value as string) === 0;
+      //   callFetchLists(
+      //     "get",
+      //     `get-all-lists?page=${pagination.current}&page_size=${pagination.pageSize}&status=${value}`
+      //   );
+      //   return;
+      // },
       render: (status: string, record: any) => {
         let clname = "";
         switch (status) {
@@ -127,15 +161,12 @@ const ListPage = () => {
   ];
 
   const onSuccessLists = async (response: any) => {
-    toast.success(response?.data[0]?.message);
-    // setDataSource(response?.data?.lists);
-    const sortedData = response?.data?.lists.sort(
-      (a: any, b: any) => a.id - b.id
-    );
+    const lists = response?.data?.lists || [];
+    const sortedData = lists.sort((a: any, b: any) => b.id - a.id);
     setDataSource(sortedData);
     setPagination({
       ...pagination,
-      total: response?.data?.total_count,
+      total: response.data.total_count, // Set total count, default to 0 if null or undefined
     });
   };
 
@@ -143,15 +174,20 @@ const ListPage = () => {
     toast.error(error.response.data.detail);
   };
 
+  const handleTableChange = (pagination: any, filters: any) => {
+    setPagination(pagination);
+    console.log("aaa", pagination);
+    if (filters.status) {
+      setStatusFilter(filters.status);
+    } else {
+      setStatusFilter([]);
+    }
+  };
   const { isloading: isloadingLists, callFetch: callFetchLists } = useApi({
     onSuccess: onSuccessLists,
     onFailure: onFailureLists,
     header: "application/json",
   });
-
-  const handleTableChange = (pagination: any) => {
-    setPagination(pagination);
-  };
 
   const onSuccessExport = async (response: any) => {
     // Assume the response contains a file URL
@@ -180,31 +216,101 @@ const ListPage = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  const exportMenu = (
-    <Menu>
-      <Menu.Item key="csv" onClick={() => handleExport("csv")}>
-        Export as CSV
-      </Menu.Item>
-      <Menu.Item key="excel" onClick={() => handleExport("excel")}>
-        Export as Excel
-      </Menu.Item>
-    </Menu>
+
+  const debouncedSearch = useCallback(
+    debounce((value: string) => {
+      setSearchTerm(value);
+    }, 300),
+    []
   );
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    debouncedSearch(event.target.value);
+  };
+
   return (
     <div className="">
       {isloadingExport ? <Spin fullscreen size="large" /> : ""}
       <div className="d-flex row align-items-center mb-4 w-100">
-        <div className="col-lg-8 col-md-7">
+        <div className="col-lg-6  col-md-4">
           <h1>Listing Page</h1>
         </div>
-        <div className="ms-auto d-flex gap-3 col-md-5 col-lg-4">
-          <Dropdown overlay={exportMenu}>
-            <button type="button" className="btn btn-primary">
-              Export <DownOutlined />
+        <div className="ms-auto d-flex gap-3 row col-md-8 col-lg-6">
+          <div className="col-lg-4 col-md-5">
+            <input
+              type="text"
+              className="form-control-sm"
+              placeholder="Name / Description"
+              onChange={handleSearch}
+            />
+          </div>
+          <div className="dropdown col-lg-2 col-md-2">
+            <button
+              className="btn btn-primary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Export
             </button>
-          </Dropdown>
-          <AddList onAdd={handleAddList} />
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li>
+                <a
+                  className="dropdown-item"
+                  href="#"
+                  onClick={() => handleExport("csv")}
+                >
+                  Export as CSV
+                </a>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item"
+                  href="#"
+                  onClick={() => handleExport("excel")}
+                >
+                  Export as Excel
+                </a>
+              </li>
+            </ul>
+          </div>
+          <AddList onAdd={handleAddList} className="col-lg-3 col-md-4" />
         </div>
+        {/* <div className="ms-auto d-flex gap-3 col-md-5 col-lg-4">
+          <div className="dropdown">
+            <button
+              className="btn btn-primary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Export
+            </button>
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li>
+                <a
+                  className="dropdown-item"
+                  href="#"
+                  onClick={() => handleExport("csv")}
+                >
+                  Export as CSV
+                </a>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item"
+                  href="#"
+                  onClick={() => handleExport("excel")}
+                >
+                  Export as Excel
+                </a>
+              </li>
+            </ul>
+          </div>
+          <AddList onAdd={handleAddList} />
+        </div> */}
       </div>
       <Table
         style={{
@@ -219,8 +325,13 @@ const ListPage = () => {
         className="p-2"
         dataSource={dataSource}
         columns={columns}
+        showSorterTooltip={{ target: "sorter-icon" }}
         rowKey="id"
-        pagination={{ ...pagination, position: ["bottomCenter"] }}
+        pagination={{
+          ...pagination,
+          total: pagination.total,
+          position: ["bottomCenter"],
+        }}
         loading={isloadingLists}
         onChange={handleTableChange}
       />

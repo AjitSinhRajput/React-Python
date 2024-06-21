@@ -499,20 +499,26 @@ async def update_list(list_id : int,lists : Lists,decoded_token: dict = Depends(
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/v1/get-all-lists", tags=['List'])
-async def get_lists(page : int, page_size : int,decoded_token: dict = Depends(decodeJWT)):
+async def get_lists(
+    page: int,
+    page_size: int,
+    statuses: Optional[str] = Query(None),
+    search: Optional[str] = Query(None),
+    decoded_token: dict = Depends(decodeJWT)
+):
     try:
-        
-        lists, total_count = await get_lists_db(app, decoded_token['user_id'], page, page_size)
+        # Call the function to get lists from the database
+        lists, total_count = await get_lists_db(app, decoded_token['user_id'], page, page_size, statuses, search)
         
         if lists:
             return {
-                'lists':lists,
-                'total_count':total_count,
+                'lists': lists,
+                'total_count': total_count,
                 'message': 'Lists retrieved successfully.',
                 'status': 1
             }
         else:
-            return{
+            return {
                 'message': 'Empty Lists.',
                 'status': 1
             }
@@ -589,7 +595,6 @@ async def export_lists(format: str, decoded_token: dict = Depends(decodeJWT)):
         logging.error(f"Error exporting lists: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
     
-
 @app.get("/api/v1/get-list", tags=['List'])
 async def get_list(list_id: int,decoded_token: dict = Depends(decodeJWT)):
     try:

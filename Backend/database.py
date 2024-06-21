@@ -502,35 +502,54 @@ async def update_list_db(app,lists,list_id,user_id):
         return result
     except Exception as e:
         await handle_database_exception(e)
-    
-async def get_lists_db(app, user_id, page, page_size):
+
+async def get_lists_db(app, user_id, page, page_size, statuses=None, search=None):
     try:
         # Calculate offset
         offset = (page - 1) * page_size
 
-        # Query to get paginated lists
-        get_lists_query = '''
-        SELECT * FROM public.lists where user_id = $1
-        LIMIT $2 OFFSET $3;
-        '''
+        # Base query to get paginated lists
+        base_query = f"SELECT * FROM public.lists WHERE user_id = {user_id}"
+        base_count_query = f"SELECT COUNT(*) FROM public.lists WHERE user_id = {user_id}"
 
-        # Query to get the total count of lists
-        get_count_query = '''
-        SELECT COUNT(*) FROM public.lists where user_id = $1;
-        '''
+        # Add status filter if statuses are provided
+        if statuses:
+            if ',' in statuses:
+                # Multiple statuses: Use IN clause
+                status_conditions = ','.join([f"'{status.strip()}'" for status in statuses.split(',')])
+                base_query += f" AND status IN ({status_conditions})"
+                base_count_query += f" AND status IN ({status_conditions})"
+            else:
+                # Single status: Use = clause
+                base_query += f" AND status = '{statuses}'"
+                base_count_query += f" AND status = '{statuses}'"
 
-        # Execute both queries
-        lists = await execute_query(app.state.db_pool, get_lists_query,user_id,page_size,offset)
-        total_count = await execute_query(app.state.db_pool, get_count_query,user_id)
-        
-        # The total count query returns a list of tuples, extract the count
-        total_count = total_count[0]['count']
+        # Add search filter if search term is provided
+        if search:
+            base_query += f" AND (name ILIKE '%{search}%' OR description ILIKE '%{search}%')"
+            # Replace column_name1 and column_name2 with actual column names in your database
+
+        # Add pagination to the query
+        paginated_query = f"{base_query} ORDER BY id DESC LIMIT {page_size} OFFSET {offset}"
+
+        # Log queries for debugging
+        # print("Paginated Query:", paginated_query)
+        # print("Count Query:", base_count_query)
+
+        # Execute queries
+        lists = await execute_query(app.state.db_pool, paginated_query)
+        total_count_result = await execute_query(app.state.db_pool, base_count_query)
+
+        # Extract the total count from the query result
+        total_count = total_count_result[0]['count'] if total_count_result else 0
 
         # Return lists along with the total count
         return lists, total_count
+
     except Exception as e:
         await handle_database_exception(e)
-    
+
+
 async def export_lists_db(app, user_id):
     try:
         # Query to get paginated lists
