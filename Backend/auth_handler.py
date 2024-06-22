@@ -29,6 +29,7 @@ def token_response(token: str):
 
 def signJWT(user_info) -> Dict[str, str]:
     try:
+        print("User info:", user_info)  
         payload = {
             "user_email": user_info[0]['user_email'],
             "user_id": user_info[0]['user_id'],
@@ -36,12 +37,14 @@ def signJWT(user_info) -> Dict[str, str]:
             "user_name": user_info[0]['user_name'],
             "expires": time.time() + 10800 # 3 Hours
         }
+        print("Payload:", payload)
         token = jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
-
+        
         return token_response(token)
     except Exception as e:
          error_message = str(e)
-         logging.error(error_message)
+        #  logging.error(error_message)
+         logging.basicConfig(filename='error.log', level=logging.ERROR,format='%(asctime)s - %(levelname)s - %(message)s - %(lineno)d')
          raise HTTPException(status_code=500, detail=error_message)
 
 def decodeJWT(Authorization: str = Header(...)) -> dict:
