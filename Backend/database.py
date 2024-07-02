@@ -527,6 +527,7 @@ async def get_lists_db(app, user_id, page, page_size, statuses=None, search=None
         # Add search filter if search term is provided
         if search:
             base_query += f" AND (name ILIKE '%{search}%' OR description ILIKE '%{search}%')"
+            base_count_query += f" AND (name ILIKE '%{search}%' OR description ILIKE '%{search}%')"
             # Replace column_name1 and column_name2 with actual column names in your database
 
         # Add pagination to the query

@@ -1,2 +1,7 @@
+.vscode
+new_proj_venv/
 .env
 *.pyc
+__pycache__
+
+error.log
