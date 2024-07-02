@@ -307,3 +307,14 @@ HINT:  Check the query against the passed list of arguments.- 43
 HINT:  Check the query against the passed list of arguments.- 43
 2024-06-21 19:05:34,374 - ERROR - 500:  Check the query against the passed list of arguments.- 43
 2024-06-21 19:05:34,374 - ERROR - Database Error: 500:  Check the query against the passed list of arguments.- 527
+2024-06-22 11:04:27,551 - ERROR - module 'jwt' has no attribute 'encode'- 44
+2024-06-22 11:04:49,620 - ERROR - module 'jwt' has no attribute 'encode'- 44
+2024-06-22 11:05:58,103 - ERROR - module 'jwt' has no attribute 'encode'- 44
+2024-06-22 11:10:11,927 - ERROR - module 'jwt' has no attribute 'encode'- 44
+2024-06-22 11:10:56,826 - ERROR - module 'jwt' has no attribute 'encode'- 44
+2024-06-22 11:11:49,646 - ERROR - module 'jwt' has no attribute 'encode'- 44
+2024-06-22 11:13:47,418 - ERROR - module 'jwt' has no attribute 'encode'- 45
+2024-06-22 11:14:03,733 - ERROR - module 'jwt' has no attribute 'encode'- 45
+2024-06-22 11:15:34,600 - ERROR - module 'jwt' has no attribute 'encode'- 45
+2024-06-22 11:16:31,771 - ERROR - module 'jwt' has no attribute 'encode'- 45
+2024-06-22 11:18:40,363 - ERROR - module 'jwt' has no attribute 'encode'- 46
