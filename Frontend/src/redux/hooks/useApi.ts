@@ -85,7 +85,7 @@ const useApi = ({ onSuccess, onFailure, header }: ApiProps) => {
       try {
         const { response } = error;
         console.log("error: useApi ", error);
-        toast.error(error?.message);
+        // toast.error(error?.message);
         if (
           response?.status == 401 &&
           (response?.data?.detail == "Invalid Token" ||

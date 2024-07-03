@@ -1,5 +1,5 @@
 .vscode
-new_proj_venv/
+outside_venv/
 .env
 *.pyc
 <<<<<<< HEAD

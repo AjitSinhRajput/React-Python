@@ -220,7 +220,7 @@ const ListPage = () => {
   const debouncedSearch = useCallback(
     debounce((value: string) => {
       setSearchTerm(value);
-    }, 300),
+    }, 400),
     []
   );
 
@@ -239,7 +239,7 @@ const ListPage = () => {
           <div className="col-lg-4 col-md-5">
             <input
               type="text"
-              className="form-control-sm"
+              className="form-control"
               placeholder="Name / Description"
               onChange={handleSearch}
             />

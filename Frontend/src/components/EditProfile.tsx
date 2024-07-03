@@ -171,10 +171,10 @@ const EditProfile: React.FC<ProfileProps> = ({ setKey }) => {
   };
 
   return (
-    <div className="row justify-content-center">
+    <div className="row justify-content-center ">
       <div className="col-sm-10 col-md-8 col-lg-8">
         {!editMode && !changePasswordMode ? (
-          <div className="d-flex justify-content-center flex-column gap-3">
+          <div className="d-flex justify-content-center flex-column gap-3 bg-light p-4 rounded shadow">
             <div className="row ">
               <div className="col-12">
                 <h5>Name: {userDetails.user_name}</h5>

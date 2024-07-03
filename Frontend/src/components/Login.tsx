@@ -164,10 +164,10 @@ const Login: React.FC<LoginProps> = ({ setKey }) => {
           </div>
         </div>
       ) : (
-        <div className="row text-center justify-content-center">
-          <div className="col-sm-10 col-md-8 col-lg-6 text-center">
-            <h2 className="my-4">User Name: {user_name}</h2>
-            <p>Are you sure you want to logout?</p>
+        <div className="row justify-content-center">
+          <div className="col-sm-10 col-md-8 col-lg-6 text-center bg-light p-4 rounded shadow">
+            <h3 className="mb-3">User: {user_name}</h3>
+            <p className="mb-3">Are you sure you want to logout?</p>
             <button className="btn btn-danger" onClick={handleLogout}>
               <PoweroffOutlined /> Logout
             </button>

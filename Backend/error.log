@@ -318,3 +318,59 @@ HINT:  Check the query against the passed list of arguments.- 43
 2024-06-22 11:15:34,600 - ERROR - module 'jwt' has no attribute 'encode'- 45
 2024-06-22 11:16:31,771 - ERROR - module 'jwt' has no attribute 'encode'- 45
 2024-06-22 11:18:40,363 - ERROR - module 'jwt' has no attribute 'encode'- 46
+2024-07-02 19:11:30,429 - ERROR - Database Error: column "first_name" does not exist- 43
+2024-07-02 19:11:30,430 - ERROR - 500: column "first_name" does not exist- 43
+2024-07-02 19:11:30,430 - ERROR - Database Error: 500: column "first_name" does not exist- 472
+2024-07-02 19:15:39,686 - ERROR - Database Error: 'bool' object is not subscriptable- 472
+2024-07-02 19:17:09,892 - ERROR - Database Error: 'bool' object is not subscriptable- 472
+2024-07-02 19:19:01,688 - ERROR - Database Error: 'bool' object is not subscriptable- 472
+2024-07-02 19:19:17,201 - ERROR - Database Error: 'bool' object is not subscriptable- 472
+2024-07-03 11:16:19,069 - ERROR - Wrong Password!- 43
+2024-07-03 11:16:23,796 - ERROR - Wrong Password!- 43
+2024-07-03 11:16:31,315 - ERROR - Wrong Password!- 43
+2024-07-03 11:17:00,087 - ERROR - Wrong Password!- 43
+2024-07-03 11:17:59,761 - ERROR - Wrong Password!- 43
+2024-07-03 11:36:03,724 - ERROR - Database Error: 'user_email'- 477
+2024-07-03 11:37:18,450 - ERROR - Database Error: 'user_email'- 477
+2024-07-03 11:42:40,200 - ERROR - Index Error: list index out of range- 43
+2024-07-03 11:42:40,200 - ERROR - Database Error: 500: list index out of range- 477
+2024-07-03 11:42:53,007 - ERROR - Index Error: list index out of range- 43
+2024-07-03 11:42:53,007 - ERROR - Database Error: 500: list index out of range- 477
+2024-07-03 11:43:55,240 - ERROR - Index Error: list index out of range- 43
+2024-07-03 11:43:55,240 - ERROR - Database Error: 500: list index out of range- 477
+2024-07-03 11:44:22,789 - ERROR - Index Error: list index out of range- 43
+2024-07-03 11:44:22,789 - ERROR - Database Error: 500: list index out of range- 477
+2024-07-03 11:45:01,662 - ERROR - Index Error: list index out of range- 43
+2024-07-03 11:45:01,662 - ERROR - Database Error: 500: list index out of range- 477
+2024-07-03 11:47:00,531 - ERROR - Index Error: list index out of range- 43
+2024-07-03 11:47:00,531 - ERROR - Database Error: 500: list index out of range- 478
+2024-07-03 11:47:24,946 - ERROR - Index Error: list index out of range- 43
+2024-07-03 11:47:24,947 - ERROR - Database Error: 500: list index out of range- 478
+2024-07-03 11:47:46,427 - ERROR - Index Error: list index out of range- 43
+2024-07-03 11:47:46,427 - ERROR - Database Error: 500: list index out of range- 478
+2024-07-03 11:48:35,240 - ERROR - Database Error: 404: Email does not exist!- 478
+2024-07-03 12:20:02,224 - ERROR - Database Error: column "email" does not exist- 43
+2024-07-03 12:20:02,224 - ERROR - 500: column "email" does not exist- 43
+2024-07-03 12:20:02,224 - ERROR - Database Error: 500: column "email" does not exist- 516
+2024-07-03 12:28:35,296 - ERROR - ID does not exist- 43
+2024-07-03 12:28:35,296 - ERROR - 500: ID does not exist- 43
+2024-07-03 12:28:35,296 - ERROR - Database Error: 500: ID does not exist- 516
+2024-07-03 12:29:05,922 - ERROR - ID does not exist- 43
+2024-07-03 12:29:05,923 - ERROR - 500: ID does not exist- 43
+2024-07-03 12:29:05,923 - ERROR - Database Error: 500: ID does not exist- 516
+2024-07-03 12:30:31,842 - ERROR - ID does not exist- 43
+2024-07-03 12:30:31,843 - ERROR - 500: ID does not exist- 43
+2024-07-03 12:30:31,843 - ERROR - Database Error: 500: ID does not exist- 516
+2024-07-03 12:32:58,883 - ERROR - Database Error: 404: Email does not exist!- 477
+2024-07-03 12:33:44,187 - ERROR - Database Error: 404: Email does not exist!- 477
+2024-07-03 12:34:01,335 - ERROR - Database Error: 500: Email does not exist!- 477
+2024-07-03 12:34:30,064 - ERROR - Database Error: 404: Email does not exist!- 477
+2024-07-03 12:34:40,088 - ERROR - Database Error: 404: Email does not exist!- 477
+2024-07-03 12:36:17,457 - ERROR - Database Error: 404: Email does not exist!- 477
+2024-07-03 12:40:32,014 - ERROR - ID does not exist- 43
+2024-07-03 12:40:32,014 - ERROR - 500: ID does not exist- 43
+2024-07-03 12:40:32,015 - ERROR - Database Error: 500: ID does not exist- 516
+2024-07-03 12:43:18,258 - ERROR - Wrong Password!- 43
+2024-07-03 12:43:21,641 - ERROR - Wrong Password!- 43
+2024-07-03 14:24:56,815 - ERROR - Wrong Password!- 43
+2024-07-03 14:25:05,777 - ERROR - Wrong Password!- 43

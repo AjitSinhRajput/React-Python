@@ -27,8 +27,20 @@ a{
 
 .navbar-custom .nav-link {
   color: #fff !important;
+  border-radius: 10px; /* Example border radius for rounded background */
+
 }
 
 .navbar-custom .nav-link:hover {
   color: #ccc !important;
+}
+.nav-link {
+  transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+}
+
+.nav-link.active {
+  color: #fff; /* Text color for active link */
+  background-color: #EB5926; /* Background color for active link */
+  border-radius: 10px; /* Rounded background for active link */
+  padding: 5px 10px;
 }

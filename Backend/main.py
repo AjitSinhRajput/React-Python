@@ -242,14 +242,14 @@ async def register_pwd(user_data:UserLogin):
 async def user_login(user_data:UserLogin):
     try:
         user_count = await user_exists_db(app, user_data.user_email)
-        if user_count[0]:
+        if user_count:
 
             user_info = await verify_credentials_db(app,user_data)
             token = signJWT(user_info)
             return token,user_info
         
         else:
-            raise HTTPException(status_code=404, detail="Email don't exist!")
+            raise HTTPException(status_code=404, detail="Email doesn't exist!")
         
     except HTTPException as e:
         raise HTTPException(status_code=500, detail=str(e.detail))
@@ -387,40 +387,96 @@ async def change_pwd(change_pwd:ChangePWD,decoded_token: dict = Depends(decodeJW
 
 
 #password reset
+# @app.post("/api/v1/forgot-password-email", tags=['Forgot Password'])
+# async def forgot_pass_email(forgot_pwd:ForgotPWD):
+#     try:
+#         forgot_pwd = forgot_pwd.model_dump()
+
+#         user_count,customer_count = await user_exists_db(app, forgot_pwd['email'])
+
+#         first_name = await fetch_username_from_email(app, forgot_pwd['email'])
+#         if user_count[0]:
+#             is_user=True
+#         elif customer_count[0]:
+#             is_user=False
+
+#         if user_count[0]:
+
+#             # Generate activation token
+#             token = generate_email_token(forgot_pwd['email'], is_user=is_user)
+        
+#             activation_link =  f"{os.environ['REACT_URL']}/reset-password?token={token['access_token']}"
+
+#             #Brevo Activation Link
+#             # forgot_pwd_email.send_email(activation_link=activation_link,name=first_name,email=forgot_pwd['email'])
+
+#             return {
+#                 'status':1,
+#                 "message": "Reset Password Link Sent"
+#                 }
+#         else:
+#             raise HTTPException(status_code=404, detail="Email don't exist!")
+#     except Exception as e:
+#         logging.error(f"Database Error: {str(e)}")
+#         raise HTTPException(status_code=500, detail=str(e))
+
 @app.post("/api/v1/forgot-password-email", tags=['Forgot Password'])
-async def forgot_pass_email(forgot_pwd:ForgotPWD):
+async def forgot_pass_email(forgot_pwd: ForgotPWD):
     try:
         forgot_pwd = forgot_pwd.model_dump()
+        
+        # Check if the user or customer exists
+        # user_count,customer_count = await user_exists_db(app, forgot_pwd['email'])
+        user_count = await user_exists_db(app, forgot_pwd['email'])
 
-        user_count,customer_count = await user_exists_db(app, forgot_pwd['email'])
+        # Fetch user's first name
+        # Determine if it's a user or customer
+        if user_count:
+            is_user = True
+        # elif customer_count:
+        #     is_user = False
+        else:
+            raise HTTPException(status_code=404, detail="Email does not exist!")
 
         first_name = await fetch_username_from_email(app, forgot_pwd['email'])
-        if user_count[0]:
-            is_user=True
-        elif customer_count[0]:
-            is_user=False
+        # Generate OTP for password reset
+        OTP = generate_otp()
+        is_otp_updated = await update_otp_db(app,forgot_pwd['email'],OTP)
 
-        if user_count[0]:
+        if is_otp_updated is not None:
+            # Instead of generating activation link, send OTP in email
+            email_body = generate_activation_email(first_name, OTP)
 
-            # Generate activation token
-            token = generate_email_token(forgot_pwd['email'], is_user=is_user)
-        
-            activation_link =  f"{os.environ['REACT_URL']}/reset-password?token={token['access_token']}"
+            # Email details
+            email_obj = {
+                "subject": "Reset Your Password",
+                "recipients": [forgot_pwd['email']],
+                "body": email_body,
+            }
 
-            #Brevo Activation Link
-            # forgot_pwd_email.send_email(activation_link=activation_link,name=first_name,email=forgot_pwd['email'])
+            # Send the email
+            email_init = EmailConfig()
+            await email_init.send_email(email_obj=email_obj)
 
+            # Generate activation token for resetting password
+            token = generate_email_token(forgot_pwd['email'], is_user=False)
+
+            # Construct activation link (assuming REACT_URL is defined in your environment)
+            # activation_link = f"{os.environ['REACT_URL']}/reset-password?token={token['access_token']}"
+            # print(token)
             return {
-                'status':1,
-                "message": "Reset Password Link Sent"
-                    }
-            ...
+                'status': 1,
+                'token': token['access_token'],
+                'user_email': forgot_pwd['email'],
+                "message": "OTP has been sent to your email."
+            }
         else:
-            raise HTTPException(status_code=404, detail="Email don't exist!")
+            raise HTTPException(status_code=404, detail="OTP is not updated!")
+
     except Exception as e:
         logging.error(f"Database Error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
-
+    
 @app.post("/api/v1/verify-pwd-token", tags=['Forgot Password'])
 async def verify_email_and_change_pwd(token:str):
     decoded_token = decode_email_token(token)
@@ -446,7 +502,6 @@ async def verify_email_and_change_pwd(token:str):
 async def reset_pwd(change_pwd:ChangePWD):
     try:
         change_pwd = change_pwd.model_dump()
-
         new_password = change_pwd['new_password']
         encrypted_password = encrypt_password(new_password)
         new_password = encrypted_password
@@ -455,7 +510,7 @@ async def reset_pwd(change_pwd:ChangePWD):
 
         if is_updated:
             return "Password is changed!"
-        ...
+        
     except Exception as e:
         logging.error(f"Database Error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))

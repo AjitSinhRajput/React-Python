@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   HomeOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
-import Logo from "../../public/Logo.png";
+import BREWTAL from "../../public/Logo.png";
 import { useSelector } from "react-redux";
 import { MdOutlineSettings } from "react-icons/md";
 import { GrClose, GrContact } from "react-icons/gr";
@@ -15,6 +15,7 @@ import { IoClose } from "react-icons/io5";
 
 const CustomHeader = () => {
   const [collapsed, setCollapsed] = React.useState(true);
+  const location = useLocation();
 
   const current_state = useSelector((state: any) => state.auth);
   const isLogedin = current_state.isLogedin;
@@ -34,8 +35,8 @@ const CustomHeader = () => {
           <img
             className="rounded"
             style={{ height: "8vh", width: "auto" }}
-            src={Logo}
-            alt="Logo"
+            src={BREWTAL}
+            alt="BREWTAL"
           />
         </Link>
         <button
@@ -47,7 +48,13 @@ const CustomHeader = () => {
         <div className={`collapse navbar-collapse ${collapsed ? "" : "show"}`}>
           <ul className="navbar-nav mb-2 mb-lg-0 d-flex w-100 d-flex gap-lg-3">
             <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={toggleMenu}>
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/" ? "active" : ""
+                }`}
+                to="/"
+                onClick={toggleMenu}
+              >
                 <div className="d-flex gap-1 align-items-baseline">
                   <span>Home</span>
                   <HomeOutlined className="fs-5" />
@@ -55,7 +62,13 @@ const CustomHeader = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about" onClick={toggleMenu}>
+              <Link
+                className={`nav-link  ${
+                  location.pathname === "/about" ? "active" : ""
+                }`}
+                to="/about"
+                onClick={toggleMenu}
+              >
                 <div className="d-flex gap-1 align-items-center">
                   <span>About Us</span>
                   <GrContact className="fs-5" />
@@ -64,7 +77,13 @@ const CustomHeader = () => {
             </li>
             {isLogedin ? (
               <li className="nav-item">
-                <Link className="nav-link" to="/list" onClick={toggleMenu}>
+                <Link
+                  className={`nav-link ${
+                    location.pathname === "/list" ? "active" : ""
+                  }`}
+                  to="/list"
+                  onClick={toggleMenu}
+                >
                   List
                 </Link>
               </li>
@@ -72,7 +91,13 @@ const CustomHeader = () => {
               ""
             )}
             <li className="nav-item ms-lg-auto">
-              <Link className="nav-link" to="/settings" onClick={toggleMenu}>
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/settings" ? "active" : ""
+                }`}
+                to="/settings"
+                onClick={toggleMenu}
+              >
                 {isLogedin ? (
                   <div className="d-flex gap-1 align-items-center">
                     <MdOutlineSettings className="fs-5" />

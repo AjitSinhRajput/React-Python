@@ -189,14 +189,13 @@ async def user_exists_db(app,Email):
             '''
             u_active_count = await connection.fetchval(count_query, Email)
 
-            count_query = '''
-            SELECT COUNT(*) FROM users WHERE user_email = $1 and is_verified = true
-            '''
-            u_inactive_count = await connection.fetchval(count_query, Email)
-
-            user_count = [u_active_count > 0, u_inactive_count>0]
-            
-            return user_count
+            # count_query = '''
+            # SELECT COUNT(*) FROM users WHERE user_email = $1 and is_verified = true
+            # '''
+            # u_inactive_count = await connection.fetchval(count_query, Email)
+            # print(u_active_count)
+            # user_count = [u_active_count > 0, u_inactive_count>0]
+            return u_active_count > 0
         
     except Exception as e:
         await handle_database_exception(e)
@@ -301,6 +300,23 @@ async def register_pwd_db(app, user_data,is_active = True):
 
     except Exception as e:
         await handle_database_exception(e)
+
+async def update_otp_db(app,user_email, OTP):
+    
+    otp_query = '''
+    UPDATE users SET otp=$1 WHERE user_email = $2 returning id;
+    '''
+    try:
+        async with app.state.db_pool.acquire() as connection:
+            async with connection.transaction():
+
+                inserted_otp = await connection.fetchval(otp_query,OTP,user_email)
+                # Iterate over the list of dictionaries in user_rights
+            return True
+    
+    except Exception as e:
+        await handle_database_exception(e)
+
 
 async def edit_user_db(app,user_data,user_id):
     try:
@@ -425,7 +441,7 @@ async def fetch_username_from_email(app,email):
     try:
         # Write your logic here
         query = '''
-        SELECT first_name from users where email = $1
+        SELECT user_name from users where user_email = $1
         '''
 
         result = await execute_query(
@@ -433,11 +449,10 @@ async def fetch_username_from_email(app,email):
             query,
             email
         )
+        if result:
+            user_name = result[0]['user_name']
 
-        first_name = result[0]['first_name']
-
-        return first_name
-        ...
+        return user_name
     except Exception as e:
         await handle_database_exception(e)
 
@@ -462,7 +477,7 @@ async def reset_pwd_db(app,email,new_password):
         query = '''
         UPDATE users
         set password=$1
-        WHERE email=$2;
+        WHERE user_email=$2;
         '''
 
         await execute_query(
@@ -472,7 +487,6 @@ async def reset_pwd_db(app,email,new_password):
             email)
 
         return True
-        ...
     except Exception as e:
         await handle_database_exception(e)
 

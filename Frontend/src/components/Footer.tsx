@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="col-md-4 d-flex flex-column align-items-center mb-3">
             <img
               src="../../public/Brewtal-Logo-White.png" // Replace with the path to your logo
-              alt="Logo"
+              alt="BREWTAL"
               className="rounded"
               style={{ maxWidth: "150px", maxHeight: "60px", width: "auto" }} // Adjust logo size
             />

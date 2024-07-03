@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, Field, constr, validator
+from pydantic import BaseModel, EmailStr, Field, constr, field_validator, validator
 from typing import List,Optional, Union
 from datetime import date
 from fastapi import UploadFile
@@ -34,11 +34,11 @@ class UserLogin(BaseModel):
         return value.strip()  # Remove leading and trailing whitespace
     
 class ChangePWD(BaseModel):
-   
-    # email:EmailStr
+    otp : str = None
+    email: EmailStr = None
     # old_password: str
     new_password: str
-    @validator("new_password")
+    @field_validator("new_password")
     def validate_password(cls, value):
         if not value.strip():  # Check if the password is empty or contains only whitespace
             raise ValueError("Password cannot be empty")
