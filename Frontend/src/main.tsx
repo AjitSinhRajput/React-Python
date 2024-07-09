@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 import { LoginAuth } from "./redux/authSlice.ts";
 import { useNavigate } from "react-router-dom";
 import { RootState, store } from "./redux/store.tsx";
-import { Spin } from "antd";
+import { FloatButton, Spin } from "antd";
 
 interface AppInitializerProps {
   children: ReactNode;
@@ -56,6 +56,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
     <AppInitializer>
       <App />
+      <FloatButton.BackTop
+        duration={0}
+        visibilityHeight={120}
+        shape="square"
+        tooltip="Back To Top"
+      />
     </AppInitializer>
   </Provider>
 );

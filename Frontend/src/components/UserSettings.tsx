@@ -48,10 +48,10 @@ const UserSettings: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container-fluid my-4">
       <div className="d-flex justify-content-center">
         <div className="card" style={{ maxWidth: "40em", width: "100%" }}>
-          <div className=" card-header text-center">
+          <div className=" card-header text-center pt-5">
             <FaUserCircle style={{ height: "5em", width: "auto" }} />
             <h1 className="mt-2">
               {isLogedin ? (

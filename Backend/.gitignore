@@ -2,11 +2,6 @@
 outside_venv/
 .env
 *.pyc
-<<<<<<< HEAD
 __pycache__
 
 error.log
-=======
-new_proj_env
-brewtal_venv
->>>>>>> 4147b4ea7cfc2c79e593028e2dff1e331adcd4d3

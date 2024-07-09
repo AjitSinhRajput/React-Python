@@ -2,7 +2,7 @@ import React from "react";
 
 const About: React.FC = () => {
   return (
-    <div>
+    <div className="container-fluid  px-5">
       <h1>About Page</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos culpa,

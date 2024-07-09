@@ -25,7 +25,7 @@ const CustomHeader = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light navbar-custom fs-5 fw-bold">
+    <nav className="navbar navbar-expand-lg navbar-light navbar-custom fs-5 fw-bold fixed-top">
       <div className="container-fluid">
         <Link
           className="navbar-brand"
@@ -46,8 +46,8 @@ const CustomHeader = () => {
           {collapsed ? <SlMenu /> : <GrClose />}
         </button>
         <div className={`collapse navbar-collapse ${collapsed ? "" : "show"}`}>
-          <ul className="navbar-nav mb-2 mb-lg-0 d-flex w-100 d-flex gap-lg-3">
-            <li className="nav-item">
+          <ul className="navbar-nav mb-2 mb-lg-0 d-flex w-100 d-flex gap-lg-3 align-items-center">
+            <li className="nav-item   ">
               <Link
                 className={`nav-link ${
                   location.pathname === "/" ? "active" : ""

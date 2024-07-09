@@ -93,7 +93,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ setKey }) => {
   };
 
   const onFailureVerifyOTP = (error: any) => {
-    toast.error("Failed to verify OTP. Please try again.");
+    toast.error(error?.response?.data?.detail);
   };
 
   const { isloading: isloadingOTP, callFetch: callFetchOTP } = useApi({

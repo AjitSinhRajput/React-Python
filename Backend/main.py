@@ -505,9 +505,11 @@ async def reset_pwd(change_pwd:ChangePWD):
         new_password = change_pwd['new_password']
         encrypted_password = encrypt_password(new_password)
         new_password = encrypted_password
-
-        is_updated = await reset_pwd_db(app,change_pwd['email'],new_password)
-
+        otp_valid = await verify_otp_db(app,change_pwd['email'],change_pwd['otp'])
+        if otp_valid:
+            is_updated = await reset_pwd_db(app,change_pwd['email'],new_password)
+        else:
+            raise HTTPException(status_code=401 , detail="Invalid OTP. Please try again.")
         if is_updated:
             return "Password is changed!"
         

@@ -20,14 +20,14 @@ a{
 }
 
 .navbar-custom {
-  background-color: #212529 !important;
-  /* background-color: #1f242d !important; */
+  background-color: rgba(33, 37, 41, 0.8) !important; /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
   color: #fff !important;
 }
 
 .navbar-custom .nav-link {
   color: #fff !important;
-  border-radius: 10px; /* Example border radius for rounded background */
+  border-radius: 10px; 
 
 }
 
@@ -41,6 +41,6 @@ a{
 .nav-link.active {
   color: #fff; /* Text color for active link */
   background-color: #EB5926; /* Background color for active link */
-  border-radius: 10px; /* Rounded background for active link */
-  padding: 5px 10px;
+  border-radius: 10px;
+  padding: 5px 5px;
 }

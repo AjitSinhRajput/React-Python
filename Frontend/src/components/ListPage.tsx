@@ -229,7 +229,7 @@ const ListPage = () => {
   };
 
   return (
-    <div className="">
+    <div className="container-fluid mb-5 ">
       {isloadingExport ? <Spin fullscreen size="large" /> : ""}
       <div className="d-flex row align-items-center mb-4 w-100">
         <div className="col-lg-6  col-md-4">
