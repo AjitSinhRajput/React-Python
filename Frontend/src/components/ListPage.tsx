@@ -72,8 +72,17 @@ const ListPage = () => {
       dataIndex: "index",
       key: "index",
       render: (text: any, record: any, index: number) => {
-        // Calculate the index based on the sorted order of the data by 'id'
-        return dataSource.findIndex((item: any) => item.id === record.id) + 1;
+        // console.log("aaa", pagination);
+
+        // // Calculate the index based on the sorted order of the data by 'id'
+        // return dataSource.findIndex((item: any) => item.id === record.id) + 1;
+        const pageSize = pagination.pageSize; // Number of items per page
+        const currentPage = pagination.current; // Current page number
+
+        // Index relative to the current page
+        const calculatedIndex = (currentPage - 1) * pageSize + index + 1;
+
+        return calculatedIndex;
       },
     },
 
@@ -176,7 +185,6 @@ const ListPage = () => {
 
   const handleTableChange = (pagination: any, filters: any) => {
     setPagination(pagination);
-    console.log("aaa", pagination);
     if (filters.status) {
       setStatusFilter(filters.status);
     } else {

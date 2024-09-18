@@ -543,9 +543,10 @@ async def get_lists_db(app, user_id, page, page_size, statuses=None, search=None
             base_query += f" AND (name ILIKE '%{search}%' OR description ILIKE '%{search}%')"
             base_count_query += f" AND (name ILIKE '%{search}%' OR description ILIKE '%{search}%')"
             # Replace column_name1 and column_name2 with actual column names in your database
-
-        # Add pagination to the query
-        paginated_query = f"{base_query} ORDER BY id DESC LIMIT {page_size} OFFSET {offset}"
+            paginated_query = f"{base_query} ORDER BY id DESC LIMIT {page_size} OFFSET {0}"
+        else:
+            # Add pagination to the query
+            paginated_query = f"{base_query} ORDER BY id DESC LIMIT {page_size} OFFSET {offset}"
 
         # Log queries for debugging
         # print("Paginated Query:", paginated_query)

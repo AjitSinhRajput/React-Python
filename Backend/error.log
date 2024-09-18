@@ -391,3 +391,15 @@ HINT:  Check the query against the passed list of arguments.- 43
 2024-07-07 13:01:59,666 - ERROR - Wrong Password!- 43
 2024-07-09 07:28:38,986 - ERROR - Wrong Password!- 43
 2024-07-09 07:28:43,136 - ERROR - Wrong Password!- 43
+2024-08-29 16:27:09,379 - ERROR - Wrong Password!- 43
+2024-08-29 16:28:36,531 - ERROR - Database Error: 500: Incorrect OTP!- 199
+2024-08-29 16:32:42,571 - ERROR - Database Error: 401: Invalid OTP. Please try again.- 517
+2024-08-29 16:32:49,102 - ERROR - Database Error: 401: Invalid OTP. Please try again.- 517
+2024-08-29 16:57:37,851 - ERROR - Database Error: 404: Email does not exist!- 477
+2024-08-29 17:01:03,321 - ERROR - Wrong Password!- 43
+2024-08-29 18:24:45,055 - ERROR - Database Error: 401: Invalid OTP. Please try again.- 517
+2024-09-18 16:04:45,259 - ERROR - Wrong Password!- 43
+2024-09-18 16:04:51,544 - ERROR - Wrong Password!- 43
+2024-09-18 16:04:54,815 - ERROR - Wrong Password!- 43
+2024-09-18 16:04:57,730 - ERROR - Wrong Password!- 43
+2024-09-18 16:04:59,957 - ERROR - Wrong Password!- 43
